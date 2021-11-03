@@ -9,22 +9,18 @@ const connect = function () {
     conn.setEncoding("utf8");
     conn.on('data', (data) => {
       console.log(data.toString());
-      //conn.end();
     });
   
     conn.on('connect', () => {
         console.log('Successfully Established!!');
-        conn.write('Name: NYS');
+        conn.write('Name: YN');
     })
 
-    // conn.on('connect', () => {
-    //     console.log('Successfully Established!!');
-    // })
-
-  
-
+    conn.on('end', () => {
+        console.log('disconnected from server');
+     });
     
-    return conn;
+     return conn;
   };
 
   module.exports = { connect };
