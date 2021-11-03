@@ -9,13 +9,21 @@ const connect = function () {
     conn.setEncoding("utf8");
     conn.on('data', (data) => {
       console.log(data.toString());
-      conn.end();
+      //conn.end();
     });
   
-    conn.on('end', () => {
-      console.log('disconnected from server');
-    });
+    conn.on('connect', () => {
+        console.log('Successfully Established!!');
+        conn.write('Name: NYS');
+    })
+
+    // conn.on('connect', () => {
+    //     console.log('Successfully Established!!');
+    // })
+
   
+
+    
     return conn;
   };
 
