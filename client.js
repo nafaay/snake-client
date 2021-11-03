@@ -15,6 +15,27 @@ const connect = function () {
         console.log('Successfully Established!!');
         conn.write('Name: YN');
     })
+    setTimeout(() => {
+        conn.on('connect', () => {
+            console.log('Snake moving up!');
+            conn.write('Move: up');
+        })
+    }, 10);
+
+    conn.on('connect', () => {
+        console.log('Snake moving down!');
+        conn.write('Move: down');
+    })
+
+    conn.on('connect', () => {
+        console.log('Snake moving right!');
+        conn.write('Move: right');
+    })
+
+    conn.on('connect', () => {
+        console.log('Snake moving left!');
+        conn.write('Move: left');
+    })
 
     conn.on('end', () => {
         console.log('disconnected from server');
