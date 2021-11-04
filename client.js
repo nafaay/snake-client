@@ -15,13 +15,11 @@ const connect = function () {
         console.log('Successfully Established!!');
         conn.write('Name: YN');
     })
-    setTimeout(() => {
-        conn.on('connect', () => {
-            console.log('Snake moving up!');
-            conn.write('Move: up');
-        })
-    }, 10);
 
+    conn.on('connect', () => {
+        console.log('Snake moving up!');
+        conn.write('w');
+    })
     conn.on('connect', () => {
         console.log('Snake moving down!');
         conn.write('Move: down');
